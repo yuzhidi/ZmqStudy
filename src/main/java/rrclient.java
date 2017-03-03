@@ -17,11 +17,12 @@ public class rrclient{
         requester.connect("tcp://localhost:5559");
         
         System.out.println("launch and connect client.");
-
-        for (int request_nbr = 0; request_nbr < 10; request_nbr++) {
-            requester.send("Hello", 0);
+        final long l = System.currentTimeMillis()/3;
+        final int i = (int)( l % 10 );
+        for (int request_nbr = 0; request_nbr < 100; request_nbr++) {
+            requester.send("Hello:["+i+"],"+request_nbr, 0);
             String reply = requester.recvStr(0);
-            System.out.println("Received reply " + request_nbr + " [" + reply + "]");
+            System.out.println("["+i+"] Received reply " + request_nbr + " [" + reply + "]");
         }
         
         //  We never get here but clean up anyhow
