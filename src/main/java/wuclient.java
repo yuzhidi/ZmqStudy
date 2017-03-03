@@ -15,6 +15,7 @@ public class wuclient {
         System.out.println("Collecting updates from weather server");
         ZMQ.Socket subscriber = context.socket(ZMQ.SUB);
         subscriber.connect("tcp://localhost:5556");
+//        subscriber.connect("tcp://localhost:5556");// TEST wuproxy
 
         //  Subscribe to zipcode, default is NYC, 10001
         String filter = (args.length > 0) ? args[0] : "10001 ";
