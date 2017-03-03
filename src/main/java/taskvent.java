@@ -8,6 +8,15 @@ import org.zeromq.ZMQ;
 //
 public class taskvent {
 
+    /*
+          taskvent   --------->     tasksink
+          bind(5557)                bind(5558)
+              /\                       /\
+               |                        |
+                         taskwork
+
+
+     */
     public static void main (String[] args) throws Exception {
         ZMQ.Context context = ZMQ.context(1);
 
